@@ -1,213 +1,369 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interact Club of Yala</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Interact Club of Yala — Service • Leadership • Friendship</title>
+  <meta name="description" content="Interact Club of Yala — youth-led service club focused on leadership, community service, and international understanding for students aged 12–18.">
+  <meta name="theme-color" content="#146C94">
 
-<link href="images/Screenshot 2026-02-22 203058.png" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <!-- Favicons (replace with your actual files) -->
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Interact Club of Yala">
+  <meta property="og:description" content="Youth-led service club — leadership, community service & friendship.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --accent:#146C94; /* primary */
+      --accent-2:#1E9ED8;
+      --muted:#6b7280;
+      --bg:#f7fbfc;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+      --radius:12px;
+      --max-width:1100px;
+      --shadow: 0 6px 18px rgba(20,20,43,0.08);
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,#f6fbff 0%,var(--bg) 100%);color:#0f172a;line-height:1.5}
+
+    a{color:var(--accent);text-decoration:none}
+    a:focus{outline:3px solid color-mix(in srgb,var(--accent) 30%, transparent)}
+
+    /* Header / Nav */
+    header{background:rgba(255,255,255,0.6);backdrop-filter:blur(6px);position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand img{width:44px;height:44px;border-radius:8px;object-fit:cover}
+    .brand h1{font-size:1rem;margin:0;font-weight:700}
+    nav.primary{display:flex;gap:1rem;align-items:center}
+    nav.primary a{padding:.6rem .6rem;border-radius:8px;font-weight:600;color:rgba(15,23,42,0.8)}
+    nav.primary a:hover{background:rgba(20,108,148,0.06)}
+
+    /* Mobile */
+    .mobile-toggle{display:none;background:transparent;border:0;font-size:1.2rem}
+    @media (max-width:880px){
+      nav.primary{display:none;position:absolute;right:1rem;top:64px;background:var(--card);box-shadow:var(--shadow);padding:.75rem;border-radius:10px;flex-direction:column}
+      .mobile-toggle{display:inline-flex}
+      nav.primary.open{display:flex}
+    }
+
+    main{max-width:var(--max-width);margin:2rem auto;padding:0 1rem}
+
+    /* Skip link */
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.5rem .75rem;background:var(--accent);color:#fff;border-radius:6px}
+
+    /* Hero */
+    .hero{display:grid;place-items:center;min-height:42vh;border-radius:16px;padding:2rem;margin:1rem 0;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
+    .hero .wrap{max-width:900px;text-align:center}
+    .hero h2{font-family:'Merriweather',serif;font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 .5rem}
+    .hero p{opacity:.95;margin:0 0 1.25rem}
+    .hero .cta{display:inline-block;background:rgba(255,255,255,0.12);padding:.6rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,0.08)}
+
+    /* Sections */
+    section{margin:2.25rem 0;padding:1rem}
+    .section-title{font-size:1.25rem;margin-bottom:.75rem}
+    .overview{max-width:68ch;color:var(--muted)}
+
+    /* Board grid */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .card{background:var(--card);border-radius:12px;padding:.9rem;display:flex;align-items:center;gap:.8rem;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(18,44,66,0.12)}
+    .img-container{width:64px;height:64px;flex:0 0 64px;border-radius:10px;overflow:hidden}
+    .img-container img{width:100%;height:100%;object-fit:cover;display:block}
+    .card-info h3{margin:0;font-size:1rem}
+    .card-info span{color:var(--muted);font-size:.9rem}
+
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}.hero{min-height:36vh}}
+    @media (max-width:420px){.grid{grid-template-columns:1fr}.card{padding:.6rem}nav.primary a{font-size:.95rem}}
+
+    /* Projects */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .project-card{background:var(--card);padding:.6rem;border-radius:12px;box-shadow:var(--shadow);text-align:center}
+    .project-card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .project-card p{margin:.5rem 0 0;color:var(--muted);font-size:.95rem}
+    @media (max-width:880px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:520px){.gallery{grid-template-columns:1fr}}
+
+    /* Register */
+    .register-btn{display:inline-block;background:var(--accent);color:#fff;padding:.7rem 1.1rem;border-radius:10px;font-weight:700}
+
+    /* Contact */
+    .contact-icons{display:flex;gap:1rem;align-items:center}
+    .contact-icons a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:10px;background:var(--card);box-shadow:var(--shadow);text-decoration:none}
+
+    footer{margin-top:2.25rem;padding:1.1rem;text-align:center;color:var(--muted);font-size:.9rem}
+
+    /* Dialog / lightbox */
+    dialog{border-radius:12px;border:0;padding:0;max-width:900px;width:calc(100% - 2rem)}
+    dialog .modal-body{padding:1rem}
+    .close-btn{background:transparent;border:0;font-size:1.1rem}
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#bod">Board</a>
-  <a href="#projects">Projects</a>
-  <a href="#register">Register</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- HERO -->
-<div class="hero" id="home">
-  <div>
-    <h1>Interact Club of Yala</h1>
-    <p>Service • Leadership • Friendship</p>
-    <a href="#about">Explore</a>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-<h2>Who We Are</h2>
-<p class="overview">
-The Interact Club of Yala is a youth-led service organization for students aged 12–18,
-focused on leadership development, community service, and international understanding.
-</p>
-</section>
-
-<!-- BOD -->
-<section id="bod" class="section bg-light">
-    <div class="container">
-        <h2 class="section-title">Board of Directors</h2>
-        <div class="grid">
-            <!-- Member 1 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/sakina.jpg" alt="Sakina Maharjan - President">
-                </div>
-                <div class="card-info">
-                    <h3>Sakina Maharjan</h3>
-                    <span>President</span>
-                </div>
-            </div>
-            <!-- Member 2 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/ipp.jpg" alt="Angel Khatri - Immediate Past President">
-                </div>
-                <div class="card-info">
-                    <h3>Angel Khatri</h3>
-                    <span>Immediate Past President</span>
-                </div>
-            </div>
-            <!-- Member 3 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/Screenshot 2026-02-22 202639.png" alt="Shreeyas Paudel - Vice President">
-                </div>
-                <div class="card-info">
-                    <h3>Shreeyas Paudel</h3>
-                    <span>Vice President</span>
-                </div>
-            </div>
-            <!-- Member 4 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/samrat.jpg" alt="Samrat Acharya - Secretary">
-                </div>
-                <div class="card-info">
-                    <h3>Samrat Acharya</h3>
-                    <span>Secretary</span>
-                </div>
-            </div>
-            <!-- Member 5 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/582616797_4244924385775166_7137509955122801518_n.jpg" alt="Demisha Dahal - Joint Secretary">
-                </div>
-                <div class="card-info">
-                    <h3>Demisha Dahal</h3>
-                    <span>Joint Secretary</span>
-                </div>
-            </div>
-            <!-- Member 6 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/edward.jpg" alt="Edward Karki - International Service Director">
-                </div>
-                <div class="card-info">
-                    <h3>Edward Karki</h3>
-                    <span>International Service Director</span>
-                </div>
-            </div>
-            <!-- Member 7 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/surishma.jpg" alt="Surishma Adhikari - Community Service Director">
-                </div>
-                <div class="card-info">
-                    <h3>Surishma Adhikari</h3>
-                    <span>Community Service Director</span>
-                </div>
-            </div>
-            <!-- Member 8 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/goma.jpg" alt="Goma Subedi - Club Service Director">
-                </div>
-                <div class="card-info">
-                    <h3>Goma Subedi</h3>
-                    <span>Club Service Director</span>
-                </div>
-            </div>
-            <!-- Member 9 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/raja.jpg" alt="Raja Babu Gupta - Treasurer">
-                </div>
-                <div class="card-info">
-                    <h3>Raja Babu Gupta</h3>
-                    <span>Treasurer</span>
-                </div>
-            </div>
-            <!-- Member 10 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/sandip.jpeg" alt="Sandip Thapa - IT Head">
-                </div>
-                <div class="card-info">
-                    <h3>Sandip Thapa</h3>
-                    <span>IT Head</span>
-                </div>
-            </div>
-            <!-- Member 11 -->
-            <div class="card">
-                <div class="img-container">
-                    <img src="images/utsav.jpg" alt="Utsav Chaulagain - Sergeant-at-Arms">
-                </div>
-                <div class="card-info">
-                    <h3>Utsav Chaulagain</h3>
-                    <span>Sergeant-at-Arms</span>
-                </div>
-            </div>
+  <header role="banner">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="images/logo.png" alt="Interact Club of Yala logo (replace)">
+        <div>
+          <h1 style="margin:0;font-size:1rem">Interact Club of Yala</h1>
+          <div style="font-size:.78rem;color:var(--muted)">Service · Leadership · Friendship</div>
         </div>
+      </div>
+
+      <nav>
+        <button class="mobile-toggle" aria-expanded="false" aria-controls="primary-nav" title="Open menu"><i class="fas fa-bars"></i></button>
+        <div id="primary-nav" class="primary" role="navigation" aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#bod">Board</a>
+          <a href="#projects">Projects</a>
+          <a href="#register">Register</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
     </div>
-</section>
+  </header>
 
-<!-- PROJECTS -->
-<section id="projects">
-<h2>Past Projects</h2>
-<div class="gallery">
-  <div class="project-card">
-    <img src="past projs/Screenshot 2026-02-21 202722.png" alt="Pathway to Progress">
-    <p>Pathway to Progress - A workshop on Public Speaking</p>
-  </div>
-  <div class="project-card">
-    <img src="past projs/Screenshot 2026-02-21 202828.png" alt="Seasonal Disease Awareness Campaign">
-    <p>Seasonal Disease Awareness Campaign</p>
-  </div>
-  <div class="project-card">
-    <img src="past projs/Screenshot 2026-02-21 202846.png" alt="Sanitation Campaign">
-    <p>Sanitation Campaign</p>
-  </div>
-  <div class="project-card">
-    <img src="past projs/Screenshot 2026-02-21 202932.png" alt="Community Bookshelf">
-    <p>Community Bookshelf</p>
-  </div>
-  <div class="project-card">
-    <img src="past projs/Screenshot 2026-02-21 203005.png" alt="E= Enlighten and C= Creativity">
-    <p>E= Enlighten and C= Creativity</p>
-  </div>
-</div>
-</section>
+  <main id="main">
 
-<!-- REGISTER -->
-<section id="register">
-<h2>Join Interact</h2>
-<div style="text-align:center; margin-top:2rem;">
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVOkVIrV0YYBZuN9V0UGYjtgc9dZ4Qgze1sn_ds8wRjA6aNg/viewform?usp=send_form" target="_blank" class="register-btn">Register</a>
-</div>
-</section>
+    <section id="home" class="hero" aria-label="Hero section">
+      <div class="wrap">
+        <h2>Interact Club of Yala</h2>
+        <p>We bring students together to serve the community, build leadership skills, and make lasting friendships.</p>
+        <p><a class="cta" href="#about" aria-label="Learn more about us">Explore our work</a></p>
+      </div>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-<h2>Contact Us</h2>
-<p>Reach us on our platforms</p>
-<div class="contact-icons">
-<a href="https://www.instagram.com/interact.yala/" target="_self"><i class="fab fa-instagram"></i></a>
-<a href="https://www.facebook.com/interactclubofyala/" target="_self"><i class="fab fa-facebook"></i></a>
-<a href="mailto:interact.yala@gmail.com"><i class="fas fa-envelope"></i></a>
-</div>
-</section>
+    <section id="about" aria-labelledby="about-title">
+      <h3 id="about-title" class="section-title">Who we are</h3>
+      <p class="overview">The Interact Club of Yala is a youth-led service organization for students aged 12–18 focused on leadership development, community service, and international understanding. We run workshops, awareness campaigns, community projects and partner with local organizations to make a measurable difference.</p>
+    </section>
 
-<footer>
-© 2026 Interact Club of Yala
-</footer>
+    <section id="bod" aria-labelledby="bod-title" class="bg-light">
+      <h3 id="bod-title" class="section-title">Board of Directors</h3>
+      <div class="grid" role="list">
+        <!-- Card example. Replace images with high-quality optimized images (webp/jpeg) -->
+        <article class="card" role="listitem" tabindex="0" data-name="Sakina Maharjan" data-role="President" data-bio="Sakina leads our club with an emphasis on community outreach and youth empowerment." data-img="images/sakina.jpg">
+          <div class="img-container">
+            <img loading="lazy" src="images/sakina.jpg" alt="Sakina Maharjan — President">
+          </div>
+          <div class="card-info">
+            <h4>Sakina Maharjan</h4>
+            <div><strong>President</strong></div>
+          </div>
+        </article>
 
+        <!-- Repeat for other members. Keep attributes for modal -->
+        <article class="card" role="listitem" tabindex="0" data-name="Angel Khatri" data-role="Immediate Past President" data-bio="Angel supports transition and mentors new members." data-img="images/ipp.jpg">
+          <div class="img-container"><img loading="lazy" src="images/ipp.jpg" alt="Angel Khatri — Immediate Past President"></div>
+          <div class="card-info"><h4>Angel Khatri</h4><div><strong>Immediate Past President</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Shreeyas Paudel" data-role="Vice President" data-bio="Shreeyas coordinates meetings and leads member recruitment." data-img="images/shreeyas.jpg">
+          <div class="img-container"><img loading="lazy" src="images/Screenshot 2026-02-22 202639.png" alt="Shreeyas Paudel — Vice President"></div>
+          <div class="card-info"><h4>Shreeyas Paudel</h4><div><strong>Vice President</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Samrat Acharya" data-role="Secretary" data-bio="Samrat keeps records and manages communications." data-img="images/samrat.jpg">
+          <div class="img-container"><img loading="lazy" src="images/samrat.jpg" alt="Samrat Acharya — Secretary"></div>
+          <div class="card-info"><h4>Samrat Acharya</h4><div><strong>Secretary</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Demisha Dahal" data-role="Joint Secretary" data-bio="Demisha assists with events and documentation." data-img="images/demisha.jpg">
+          <div class="img-container"><img loading="lazy" src="images/582616797_4244924385775166_7137509955122801518_n.jpg" alt="Demisha Dahal — Joint Secretary"></div>
+          <div class="card-info"><h4>Demisha Dahal</h4><div><strong>Joint Secretary</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Edward Karki" data-role="International Service Director" data-bio="Edward manages our international outreach and exchange programs." data-img="images/edward.jpg">
+          <div class="img-container"><img loading="lazy" src="images/edward.jpg" alt="Edward Karki — International Service Director"></div>
+          <div class="card-info"><h4>Edward Karki</h4><div><strong>International Service Director</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Surishma Adhikari" data-role="Community Service Director" data-bio="Surishma leads local community projects and campaigns." data-img="images/surishma.jpg">
+          <div class="img-container"><img loading="lazy" src="images/surishma.jpg" alt="Surishma Adhikari — Community Service Director"></div>
+          <div class="card-info"><h4>Surishma Adhikari</h4><div><strong>Community Service Director</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Goma Subedi" data-role="Club Service Director" data-bio="Goma organises club activities and member engagement." data-img="images/goma.jpg">
+          <div class="img-container"><img loading="lazy" src="images/goma.jpg" alt="Goma Subedi — Club Service Director"></div>
+          <div class="card-info"><h4>Goma Subedi</h4><div><strong>Club Service Director</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Raja Babu Gupta" data-role="Treasurer" data-bio="Raja manages funds and fundraising activities." data-img="images/raja.jpg">
+          <div class="img-container"><img loading="lazy" src="images/raja.jpg" alt="Raja Babu Gupta — Treasurer"></div>
+          <div class="card-info"><h4>Raja Babu Gupta</h4><div><strong>Treasurer</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Sandip Thapa" data-role="IT Head" data-bio="Sandip handles the website and tech operations." data-img="images/sandip.jpeg">
+          <div class="img-container"><img loading="lazy" src="images/sandip.jpeg" alt="Sandip Thapa — IT Head"></div>
+          <div class="card-info"><h4>Sandip Thapa</h4><div><strong>IT Head</strong></div></div>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" data-name="Utsav Chaulagain" data-role="Sergeant-at-Arms" data-bio="Utsav manages meetings and logistics." data-img="images/utsav.jpg">
+          <div class="img-container"><img loading="lazy" src="images/utsav.jpg" alt="Utsav Chaulagain — Sergeant-at-Arms"></div>
+          <div class="card-info"><h4>Utsav Chaulagain</h4><div><strong>Sergeant-at-Arms</strong></div></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <h3 id="projects-title" class="section-title">Past Projects</h3>
+      <div class="gallery">
+        <div class="project-card" tabindex="0" data-img="past projs/Screenshot 2026-02-21 202722.png" data-caption="Pathway to Progress — Public Speaking workshop">
+          <img loading="lazy" src="past projs/Screenshot 2026-02-21 202722.png" alt="Pathway to Progress workshop">
+          <p>Pathway to Progress — Public Speaking workshop</p>
+        </div>
+
+        <div class="project-card" tabindex="0" data-img="past projs/Screenshot 2026-02-21 202828.png" data-caption="Seasonal Disease Awareness Campaign">
+          <img loading="lazy" src="past projs/Screenshot 2026-02-21 202828.png" alt="Seasonal Disease Awareness Campaign">
+          <p>Seasonal Disease Awareness Campaign</p>
+        </div>
+
+        <div class="project-card" tabindex="0" data-img="past projs/Screenshot 2026-02-21 202846.png" data-caption="Sanitation Campaign">
+          <img loading="lazy" src="past projs/Screenshot 2026-02-21 202846.png" alt="Sanitation Campaign">
+          <p>Sanitation Campaign</p>
+        </div>
+
+        <div class="project-card" tabindex="0" data-img="past projs/Screenshot 2026-02-21 202932.png" data-caption="Community Bookshelf">
+          <img loading="lazy" src="past projs/Screenshot 2026-02-21 202932.png" alt="Community Bookshelf">
+          <p>Community Bookshelf</p>
+        </div>
+
+        <div class="project-card" tabindex="0" data-img="past projs/Screenshot 2026-02-21 203005.png" data-caption="E = Enlighten and C = Creativity">
+          <img loading="lazy" src="past projs/Screenshot 2026-02-21 203005.png" alt="E = Enlighten and C = Creativity">
+          <p>E = Enlighten and C = Creativity</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="register" aria-labelledby="register-title" style="text-align:center;">
+      <h3 id="register-title" class="section-title">Join Interact</h3>
+      <p class="overview">If you're aged 12–18 and want to make an impact, we'd love to have you. Click to register or contact us for help.</p>
+      <p style="margin-top:1rem"><a class="register-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdVOkVIrV0YYBZuN9V0UGYjtgc9dZ4Qgze1sn_ds8wRjA6aNg/viewform?usp=send_form" target="_blank" rel="noopener">Register</a></p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h3 id="contact-title" class="section-title">Contact Us</h3>
+      <p>Reach us on our platforms or send an email.</p>
+      <div class="contact-icons" style="margin-top:.6rem">
+        <a href="https://www.instagram.com/interact.yala/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/interactclubofyala/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+        <a href="mailto:interact.yala@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <footer role="contentinfo">
+      <div style="max-width:var(--max-width);margin:0 auto;padding:1rem">© 2026 Interact Club of Yala · Built with ❤️ — <a href="#contact">Contact</a></div>
+    </footer>
+
+  </main>
+
+  <!-- Member detail dialog / lightbox -->
+  <dialog id="detail-dialog" aria-labelledby="dlg-title">
+    <div class="modal-body">
+      <button class="close-btn" id="dlg-close" aria-label="Close dialog"><i class="fas fa-times"></i></button>
+      <div style="display:flex;gap:1rem;align-items:flex-start">
+        <img id="dlg-img" src="" alt="" style="width:160px;height:160px;object-fit:cover;border-radius:10px">
+        <div>
+          <h4 id="dlg-title"></h4>
+          <div id="dlg-role" style="color:var(--muted);margin-bottom:.5rem"></div>
+          <p id="dlg-bio" style="max-width:46ch"></p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.mobile-toggle');
+    const nav = document.getElementById('primary-nav');
+    toggle.addEventListener('click',()=>{
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Open member dialog when card is clicked or activated
+    const dialog = document.getElementById('detail-dialog');
+    const dlgTitle = document.getElementById('dlg-title');
+    const dlgRole = document.getElementById('dlg-role');
+    const dlgBio = document.getElementById('dlg-bio');
+    const dlgImg = document.getElementById('dlg-img');
+    const dlgClose = document.getElementById('dlg-close');
+
+    function openCardDialog(card){
+      dlgTitle.textContent = card.dataset.name || '';
+      dlgRole.textContent = card.dataset.role || '';
+      dlgBio.textContent = card.dataset.bio || '';
+      dlgImg.src = card.dataset.img || '';
+      dlgImg.alt = (card.dataset.name || 'Member') + ' photo';
+      dialog.showModal();
+      dlgClose.focus();
+    }
+
+    document.querySelectorAll('.card').forEach(card=>{
+      card.addEventListener('click',()=>openCardDialog(card));
+      card.addEventListener('keydown',e=>{ if(e.key=== 'Enter' || e.key===' ') openCardDialog(card); });
+    });
+
+    dlgClose.addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('keydown',e=>{ if(e.key==='Escape') dialog.close(); });
+
+    // Project lightbox (re-uses dialog)
+    document.querySelectorAll('.project-card').forEach(card=>{
+      card.addEventListener('click',()=>{
+        const img = card.dataset.img;
+        const caption = card.dataset.caption || '';
+        dlgImg.src = img; dlgImg.alt = caption; dlgTitle.textContent = caption; dlgRole.textContent = '';
+        dlgBio.textContent = '';
+        dialog.showModal();
+      });
+      card.addEventListener('keydown',e=>{ if(e.key==='Enter' || e.key===' ') card.click(); });
+    });
+
+    // Close dialog when clicking outside
+    dialog.addEventListener('click', (e)=>{
+      const rect = dialog.getBoundingClientRect();
+      const inDialog = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if(!inDialog) dialog.close();
+    });
+
+    // Small enhancement: ensure images are present, otherwise use placeholder
+    document.querySelectorAll('img').forEach(img=>{
+      img.addEventListener('error',()=>{ img.src='images/placeholder.png'; });
+    });
+  </script>
+
+  <!-- Structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Interact Club of Yala",
+    "url": "https://yourdomain.example/",
+    "logo": "https://yourdomain.example/images/logo.png",
+    "sameAs": [
+      "https://www.instagram.com/interact.yala/",
+      "https://www.facebook.com/interactclubofyala/"
+    ]
+  }
+  </script>
 </body>
 </html>
-make this better
