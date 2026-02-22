@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Interact Club of Yala — Service • Leadership • Friendship</title>
-  <meta name="description" content="Interact Club of Yala — a modern youth-led service club focused on leadership, community service, and international understanding.">
+  <meta name="description" content="Interact Club of Yala — a professional youth-led service organization focused on leadership, community service, and international understanding.">
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,14 +12,15 @@
 
   <style>
     :root{
-      --primary:#0ea5e9;
-      --secondary:#6366f1;
+      --blue:#0b3c5d;        /* deep royal blue */
+      --blue-light:#1e6fa1; /* accent blue */
+      --gold:#d4af37;       /* metallic gold */
+      --gold-soft:#f5d76e;
       --dark:#020617;
-      --light:#f8fafc;
       --glass:rgba(255,255,255,0.08);
-      --border:rgba(255,255,255,0.18);
+      --border:rgba(212,175,55,0.35);
       --radius:18px;
-      --shadow:0 30px 80px rgba(0,0,0,0.35);
+      --shadow:0 35px 90px rgba(0,0,0,0.45);
     }
 
     *{box-sizing:border-box}
@@ -28,8 +29,8 @@
       margin:0;
       font-family:'Inter',system-ui,sans-serif;
       background:
-        radial-gradient(1200px 600px at 10% -10%,rgba(99,102,241,.25),transparent 60%),
-        radial-gradient(1000px 600px at 90% 10%,rgba(14,165,233,.25),transparent 60%),
+        radial-gradient(1200px 600px at 10% -10%,rgba(212,175,55,.18),transparent 60%),
+        radial-gradient(900px 600px at 90% 10%,rgba(30,111,161,.25),transparent 60%),
         linear-gradient(180deg,#020617 0%,#020617 100%);
       color:#e5e7eb;
     }
@@ -39,127 +40,125 @@
     /* NAV */
     header{
       position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(14px);
-      background:rgba(2,6,23,.6);
+      backdrop-filter:blur(16px);
+      background:rgba(2,6,23,.65);
       border-bottom:1px solid var(--border);
     }
     .nav{
       max-width:1200px;margin:auto;
       display:flex;align-items:center;justify-content:space-between;
-      padding:1rem 1.2rem;
+      padding:1rem 1.4rem;
     }
     .logo{
-      display:flex;gap:.75rem;align-items:center;font-weight:800
+      font-weight:900;font-size:1.1rem;letter-spacing:.4px
     }
     .logo span{
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      background:linear-gradient(135deg,var(--gold),var(--gold-soft));
       -webkit-background-clip:text;color:transparent
     }
     nav a{
-      margin-left:1.4rem;
-      font-weight:500;
-      opacity:.85;position:relative
+      margin-left:1.6rem;font-weight:500;opacity:.9;position:relative
     }
     nav a::after{
       content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      background:linear-gradient(135deg,var(--gold),var(--gold-soft));
       transition:.3s
     }
     nav a:hover::after{width:100%}
 
     /* HERO */
     .hero{
-      min-height:90vh;
-      display:grid;place-items:center;text-align:center;padding:2rem
+      min-height:92vh;display:grid;place-items:center;text-align:center;padding:2rem
     }
     .hero h1{
-      font-size:clamp(2.6rem,6vw,5rem);
+      font-size:clamp(2.8rem,6vw,5.2rem);
       line-height:1.05;margin:0;
-      background:linear-gradient(135deg,#fff,var(--primary));
+      background:linear-gradient(135deg,#ffffff,var(--gold));
       -webkit-background-clip:text;color:transparent
     }
     .hero p{
-      max-width:640px;margin:1.2rem auto 2.2rem;
+      max-width:680px;margin:1.4rem auto 2.4rem;
       font-size:1.15rem;color:#cbd5f5
     }
     .hero a{
-      padding:.9rem 1.8rem;border-radius:999px;
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      font-weight:700;color:#020617
+      padding:1rem 2.1rem;border-radius:999px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+      font-weight:800;color:#020617
     }
 
-    section{max-width:1200px;margin:6rem auto;padding:0 1.2rem}
+    section{max-width:1200px;margin:6rem auto;padding:0 1.4rem}
     section h2{
-      font-size:clamp(1.8rem,3vw,2.6rem);
-      margin-bottom:1rem
+      font-size:clamp(1.9rem,3vw,2.7rem);
+      margin-bottom:1.2rem
     }
-    .muted{color:#94a3b8;max-width:720px}
+    .muted{color:#9ca3af;max-width:760px}
 
     /* BOARD */
     .grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:1.6rem;margin-top:2.5rem
+      gap:1.8rem;margin-top:2.8rem
     }
     .card{
       background:var(--glass);
       backdrop-filter:blur(18px);
       border:1px solid var(--border);
       border-radius:var(--radius);
-      padding:1.4rem;
+      padding:1.6rem 1.4rem 1.8rem;
       text-align:center;
-      transition:.4s;
+      transition:.45s;
     }
-    .card:hover{transform:translateY(-14px) scale(1.02);box-shadow:var(--shadow)}
+    .card:hover{transform:translateY(-16px);box-shadow:var(--shadow)}
     .card img{
-      width:110px;height:110px;border-radius:50%;object-fit:cover;
-      margin-bottom:1rem;border:3px solid transparent;
-      background:linear-gradient(var(--dark),var(--dark)) padding-box,
-                 linear-gradient(135deg,var(--primary),var(--secondary)) border-box
+      width:118px;height:118px;border-radius:50%;object-fit:cover;
+      margin-bottom:1.1rem;border:3px solid transparent;
+      background:
+        linear-gradient(#020617,#020617) padding-box,
+        linear-gradient(135deg,var(--gold),var(--blue-light)) border-box
     }
-    .card h3{margin:.4rem 0 .2rem}
-    .card span{font-size:.9rem;color:#94a3b8}
+    .card h3{margin:.5rem 0 .2rem;font-size:1.05rem}
+    .card span{font-size:.9rem;color:#d1d5db}
 
     /* PROJECTS */
     .projects{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:2rem;margin-top:2.5rem
+      gap:2.2rem;margin-top:3rem
     }
     .project{
       position:relative;border-radius:var(--radius);overflow:hidden
     }
     .project img{
-      width:100%;height:100%;object-fit:cover;transition:.5s
+      width:100%;height:100%;object-fit:cover;transition:.6s
     }
     .project::after{
       content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg,transparent,rgba(2,6,23,.85))
+      background:linear-gradient(180deg,transparent,rgba(2,6,23,.9))
     }
-    .project:hover img{transform:scale(1.12)}
+    .project:hover img{transform:scale(1.15)}
     .project p{
-      position:absolute;bottom:1rem;left:1rem;right:1rem;z-index:2;
+      position:absolute;bottom:1.2rem;left:1.2rem;right:1.2rem;z-index:2;
       font-weight:600
     }
 
     /* CTA */
     .cta{
-      text-align:center;padding:4rem 2rem;
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      border-radius:var(--radius);color:#020617
+      text-align:center;padding:4.5rem 2rem;
+      background:linear-gradient(135deg,var(--blue),var(--blue-light));
+      border-radius:var(--radius)
     }
+    .cta h2{margin-top:0}
     .cta a{
-      display:inline-block;margin-top:1.5rem;
-      background:#020617;color:#fff;padding:.8rem 1.8rem;
-      border-radius:999px;font-weight:700
+      display:inline-block;margin-top:1.8rem;
+      background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+      color:#020617;padding:.9rem 2.2rem;
+      border-radius:999px;font-weight:800
     }
 
     /* CONTACT */
     .contact-icons a{
-      font-size:1.4rem;margin-right:1rem;opacity:.85
+      font-size:1.5rem;margin-right:1.2rem;opacity:.9
     }
 
-    footer{
-      text-align:center;padding:3rem 1rem;color:#64748b
-    }
+    footer{text-align:center;padding:3.2rem 1rem;color:#9ca3af}
   </style>
 </head>
 <body>
@@ -181,33 +180,47 @@
 <div class="hero" id="home">
   <div>
     <h1>Interact Club of Yala</h1>
-    <p>Empowering youth through service, leadership, and global friendship.</p>
-    <a href="#about">Discover More</a>
+    <p>Shaping tomorrow’s leaders through service, responsibility, and global friendship.</p>
+    <a href="#about">Explore Our Mission</a>
   </div>
 </div>
 
 <section id="about">
   <h2>Who We Are</h2>
-  <p class="muted">The Interact Club of Yala is a youth‑led service organization for students aged 12–18, dedicated to leadership development, community impact, and international understanding through meaningful action.</p>
+  <p class="muted">The Interact Club of Yala is a youth-led service organization for students aged 12–18. We empower young leaders through impactful community projects, leadership development, and international understanding.</p>
 </section>
 
 <section id="bod">
   <h2>Board of Directors</h2>
   <div class="grid">
-    <!-- repeat cards as before -->
+    <div class="card"><img src="images/sakina.jpg" alt="Sakina Maharjan"><h3>Sakina Maharjan</h3><span>President</span></div>
+    <div class="card"><img src="images/ipp.jpg" alt="Angel Khatri"><h3>Angel Khatri</h3><span>Immediate Past President</span></div>
+    <div class="card"><img src="images/Screenshot 2026-02-22 202639.png" alt="Shreeyas Paudel"><h3>Shreeyas Paudel</h3><span>Vice President</span></div>
+    <div class="card"><img src="images/samrat.jpg" alt="Samrat Acharya"><h3>Samrat Acharya</h3><span>Secretary</span></div>
+    <div class="card"><img src="images/582616797_4244924385775166_7137509955122801518_n.jpg" alt="Demisha Dahal"><h3>Demisha Dahal</h3><span>Joint Secretary</span></div>
+    <div class="card"><img src="images/edward.jpg" alt="Edward Karki"><h3>Edward Karki</h3><span>International Service Director</span></div>
+    <div class="card"><img src="images/surishma.jpg" alt="Surishma Adhikari"><h3>Surishma Adhikari</h3><span>Community Service Director</span></div>
+    <div class="card"><img src="images/goma.jpg" alt="Goma Subedi"><h3>Goma Subedi</h3><span>Club Service Director</span></div>
+    <div class="card"><img src="images/raja.jpg" alt="Raja Babu Gupta"><h3>Raja Babu Gupta</h3><span>Treasurer</span></div>
+    <div class="card"><img src="images/sandip.jpeg" alt="Sandip Thapa"><h3>Sandip Thapa</h3><span>IT Head</span></div>
+    <div class="card"><img src="images/utsav.jpg" alt="Utsav Chaulagain"><h3>Utsav Chaulagain</h3><span>Sergeant-at-Arms</span></div>
   </div>
 </section>
 
 <section id="projects">
   <h2>Our Impact</h2>
   <div class="projects">
-    <!-- project cards as before -->
+    <div class="project"><img src="past projs/Screenshot 2026-02-21 202722.png" alt="Pathway to Progress"><p>Pathway to Progress — Public Speaking Workshop</p></div>
+    <div class="project"><img src="past projs/Screenshot 2026-02-21 202828.png" alt="Seasonal Disease Awareness"><p>Seasonal Disease Awareness Campaign</p></div>
+    <div class="project"><img src="past projs/Screenshot 2026-02-21 202846.png" alt="Sanitation Campaign"><p>Sanitation Campaign</p></div>
+    <div class="project"><img src="past projs/Screenshot 2026-02-21 202932.png" alt="Community Bookshelf"><p>Community Bookshelf</p></div>
+    <div class="project"><img src="past projs/Screenshot 2026-02-21 203005.png" alt="Enlighten & Creativity"><p>E = Enlighten & C = Creativity</p></div>
   </div>
 </section>
 
 <section id="register" class="cta">
   <h2>Become an Interactor</h2>
-  <p>Join a community of young leaders making a real difference.</p>
+  <p>Join a network of young leaders committed to service and excellence.</p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVOkVIrV0YYBZuN9V0UGYjtgc9dZ4Qgze1sn_ds8wRjA6aNg/viewform?usp=send_form" target="_blank">Register Now</a>
 </section>
 
